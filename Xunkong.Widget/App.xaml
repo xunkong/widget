@@ -1,0 +1,41 @@
+﻿<Application x:Class="Xunkong.Widget.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:Xunkong.Widget"
+             xmlns:xwc="using:Xunkong.Widget.Converters"
+             RequestedTheme="Light">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" ControlsResourcesVersion="Version2" />
+            </ResourceDictionary.MergedDictionaries>
+
+
+            <x:String x:Key="Image_Domain">ms-appx:///Assets/Images/Domain_64.png</x:String>
+            <x:String x:Key="Image_Resin">ms-appx:///Assets/Images/UI_ItemIcon_210.png</x:String>
+            <x:String x:Key="Image_ResinMax">ms-appx:///Assets/Images/UI_ItemIcon_211.png</x:String>
+            <x:String x:Key="Image_HomeCoin">ms-appx:///Assets/Images/UI_ItemIcon_204.png</x:String>
+            <x:String x:Key="Image_Transformer">ms-appx:///Assets/Images/UI_ItemIcon_220021_64.png</x:String>
+            <x:String x:Key="Image_QuestEvent">ms-appx:///Assets/Images/UI_NPCTopIcon_QuestEvent_64.png</x:String>
+            <x:String x:Key="Image_Primogems">ms-appx:///Assets/Images/UI_ItemIcon_201.png</x:String>
+            <x:String x:Key="Image_Mora">ms-appx:///Assets/Images/UI_ItemIcon_202.png</x:String>
+            <x:String x:Key="Image_Paimon">ms-appx:///Assets/Images/UI_EmotionIcon5.png</x:String>
+            <x:String x:Key="Image_Explore">ms-appx:///Assets/Images/UI_Icon_Intee_Explore_1.png</x:String>
+
+
+
+            <xwc:DateTimeOffsetToDateTimeStringConverter x:Key="DateTimeOffsetToDateTimeStringConverter"/>
+            <xwc:DateTimeOffsetToTimeStringConverter x:Key="DateTimeOffsetToTimeStringConverter"/>
+            <xwc:DateTimeOffsetToDayStringConverter x:Key="DateTimeOffsetToDayStringConverter"/>
+            <xwc:ExpeditionStatusToColorConverter x:Key="ExpeditionStatusToColorConverter"/>
+            <xwc:ObjectToVisibilityConverter x:Key="ObjectToVisibilityConverter"/>
+            <xwc:ObjectToVisibilityReversedConverter x:Key="ObjectToVisibilityReversedConverter"/>
+            <xwc:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+            <xwc:BoolToVisibilityReversedConverter x:Key="BoolToVisibilityReversedConverter"/>
+            <xwc:QuestEventStatsColorConverter x:Key="QuestEventStatsColorConverter"/>
+            <xwc:QuestEventStatsColorForXboxWidgetConverter x:Key="QuestEventStatsColorForXboxWidgetConverter"/>
+            <xwc:QuestEventStatsStringConverter x:Key="QuestEventStatsStringConverter"/>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

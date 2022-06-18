@@ -1,0 +1,126 @@
+﻿<UserControl x:Class="Xunkong.Widget.Controls.XboxWidgetUserCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="using:Xunkong.Widget.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="using:Xunkong.Widget.Controls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Width="312"
+             Height="136"
+             mc:Ignorable="d">
+
+    <Grid Padding="12,8,12,8"
+          Background="#F5F2EB"
+          BorderBrush="#DCD7D1"
+          BorderThickness="1"
+          CornerRadius="4"
+          RowSpacing="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Orientation="Horizontal" Spacing="20">
+            <Border Width="48"
+                    Height="48"
+                    Margin="4,0,0,0"
+                    CornerRadius="1000">
+                <Image d:Source="https://img-static.mihoyo.com/avatar/avatar40004.png" Source="{x:Bind UserInfo.HoyolabUserInfo.AvatarUrl}" />
+            </Border>
+            <StackPanel VerticalAlignment="Center" Spacing="4">
+                <TextBlock d:Text="旅行者" Text="{x:Bind UserInfo.GenshinRoleInfo.Nickname}" />
+                <TextBlock Style="{ThemeResource CaptionTextBlockStyle}">
+                    <Run d:Text="天空岛" Text="{x:Bind UserInfo.GenshinRoleInfo.RegionName}" />
+                    <Run d:Text="60" Text="{x:Bind UserInfo.GenshinRoleInfo.Level}" />
+                    <Run Text="级" />
+                </TextBlock>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center"
+                        Spacing="4"
+                        Visibility="{x:Bind UserInfo.TravelNotesDayData, Converter={StaticResource ObjectToVisibilityConverter}}">
+                <Image Width="20" Source="{StaticResource Image_Primogems}" />
+                <Image Width="20" Source="{StaticResource Image_Mora}" />
+            </StackPanel>
+            <StackPanel Margin="-12,0,0,0"
+                        VerticalAlignment="Center"
+                        Spacing="4"
+                        Visibility="{x:Bind UserInfo.TravelNotesDayData, Converter={StaticResource ObjectToVisibilityConverter}}">
+                <TextBlock d:Text="60" Text="{x:Bind UserInfo.TravelNotesDayData.CurrentPrimogems}" />
+                <TextBlock d:Text="120000" Text="{x:Bind UserInfo.TravelNotesDayData.CurrentMora}" />
+            </StackPanel>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal"
+                    Spacing="12">
+            <StackPanel Spacing="4">
+                <Image Width="20"
+                       Height="20"
+                       Source="{StaticResource Image_Resin}"
+                       Stretch="Uniform" />
+                <TextBlock HorizontalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}">
+                    <Run d:Text="124" Text="{x:Bind UserInfo.DailyNoteInfo.CurrentResin}" />
+                    <Run Text="/" />
+                    <Run d:Text="160" Text="{x:Bind UserInfo.DailyNoteInfo.MaxResin}" />
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <StackPanel Spacing="4">
+                    <Image Width="20"
+                           Height="20"
+                           Source="{StaticResource Image_ResinMax}"
+                           Stretch="Uniform" />
+                    <TextBlock HorizontalAlignment="Center"
+                               d:Text="15:54:34"
+                               Style="{ThemeResource CaptionTextBlockStyle}"
+                               Text="{x:Bind UserInfo.DailyNoteInfo.ResinFullTime, Converter={StaticResource DateTimeOffsetToTimeStringConverter}}" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Spacing="4">
+                <Image Width="20"
+                       Height="20"
+                       Source="{StaticResource Image_HomeCoin}"
+                       Stretch="Uniform" />
+                <TextBlock HorizontalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}">
+                    <Run d:Text="1240" Text="{x:Bind UserInfo.DailyNoteInfo.CurrentHomeCoin}" />
+                    <Run Text="/" />
+                    <Run d:Text="240" Text="{x:Bind UserInfo.DailyNoteInfo.MaxHomeCoin}" />
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Spacing="4">
+                <Image Width="20"
+                       Height="20"
+                       Source="{StaticResource Image_Explore}"
+                       Stretch="Uniform" />
+                <TextBlock HorizontalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}">
+                    <Run d:Text="2" Text="{x:Bind UserInfo.DailyNoteInfo.FinishedExpeditionNumber}" />
+                    <Run Text="/" />
+                    <Run d:Text="5" Text="{x:Bind UserInfo.DailyNoteInfo.CurrentExpeditionNumber}" />
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <StackPanel Spacing="4">
+                    <Image Width="20"
+                           Height="20"
+                           Source="{StaticResource Image_QuestEvent}"
+                           Stretch="Uniform" />
+                    <TextBlock HorizontalAlignment="Center"
+                               d:Text="奖励已领取"
+                               Foreground="{x:Bind UserInfo.DailyNoteInfo, Converter={StaticResource QuestEventStatsColorForXboxWidgetConverter}}"
+                               Style="{ThemeResource CaptionTextBlockStyle}"
+                               Text="{x:Bind UserInfo.DailyNoteInfo, Converter={StaticResource QuestEventStatsStringConverter}}" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+
+    </Grid>
+</UserControl>

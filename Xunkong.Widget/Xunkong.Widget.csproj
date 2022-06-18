@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{B67C7ABF-5BAA-4FDF-9A52-C7D0A6C0A1B9}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Xunkong.Widget</RootNamespace>
+    <AssemblyName>Xunkong.Widget</AssemblyName>
+    <DefaultLanguage>zh-CN</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.22000.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.18362.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+    <PackageCertificateThumbprint>09188B610F483A0C7BF46142AC329CC22CCAA7B6</PackageCertificateThumbprint>
+    <PackageCertificateKeyFile />
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x64</AppxBundlePlatforms>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserCard.xaml.cs">
+      <DependentUpon>UserCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\XboxWidgetUserCard.xaml.cs">
+      <DependentUpon>XboxWidgetUserCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\DateTimeOffsetToTimeStringConverter.cs" />
+    <Compile Include="Converters\ExpeditionStatusToColorConverter.cs" />
+    <Compile Include="Converters\ObjectToVisibilityConverter.cs" />
+    <Compile Include="Converters\ObjToBoolStringConverter.cs" />
+    <Compile Include="Converters\QuestEventStatsConverter.cs" />
+    <Compile Include="Hoyolab\Account\GenshinPlayerInfo.cs" />
+    <Compile Include="Hoyolab\Account\GenshinRoleInfoWrapper.cs" />
+    <Compile Include="Hoyolab\Account\HoyolabUserInfo.cs" />
+    <Compile Include="Hoyolab\Account\HoyolabUserInfoWrapper.cs" />
+    <Compile Include="Hoyolab\Account\SignInInfo.cs" />
+    <Compile Include="Hoyolab\Account\SignTodayJsonConverter.cs" />
+    <Compile Include="Hoyolab\Avatar\AvatarCalculate.cs" />
+    <Compile Include="Hoyolab\Avatar\AvatarConstellation.cs" />
+    <Compile Include="Hoyolab\Avatar\AvatarCostume.cs" />
+    <Compile Include="Hoyolab\Avatar\AvatarDetail.cs" />
+    <Compile Include="Hoyolab\Avatar\AvatarDetailWrapper.cs" />
+    <Compile Include="Hoyolab\Avatar\AvatarInfo.cs" />
+    <Compile Include="Hoyolab\Avatar\AvatarReliquary.cs" />
+    <Compile Include="Hoyolab\Avatar\AvatarSkill.cs" />
+    <Compile Include="Hoyolab\Avatar\AvatarWeapon.cs" />
+    <Compile Include="Hoyolab\Avatar\ReliquaryAffix.cs" />
+    <Compile Include="Hoyolab\Avatar\ReliquarySet.cs" />
+    <Compile Include="Hoyolab\Core\ElementType.cs" />
+    <Compile Include="Hoyolab\Core\EnumExtension.cs" />
+    <Compile Include="Hoyolab\Core\RegionHelper.cs" />
+    <Compile Include="Hoyolab\Core\RegionType.cs" />
+    <Compile Include="Hoyolab\Core\WeaponType.cs" />
+    <Compile Include="Hoyolab\Core\XunkongException.cs" />
+    <Compile Include="Hoyolab\DailyNote\DailyNoteInfo.cs" />
+    <Compile Include="Hoyolab\DailyNote\Expedition.cs" />
+    <Compile Include="Hoyolab\DailyNote\RecoveryTimeJsonConverter.cs" />
+    <Compile Include="Hoyolab\DailyNote\Transformer.cs" />
+    <Compile Include="Hoyolab\DailyNote\TransformerRecoveryTime.cs" />
+    <Compile Include="Hoyolab\DynamicSecret.cs" />
+    <Compile Include="Hoyolab\GameRecord\GameRecordSummary.cs" />
+    <Compile Include="Hoyolab\GameRecord\PlayerRiskStats.cs" />
+    <Compile Include="Hoyolab\GameRecord\PotHome.cs" />
+    <Compile Include="Hoyolab\GameRecord\WorldExploration.cs" />
+    <Compile Include="Hoyolab\GameRecord\WorldExplorationOffering.cs" />
+    <Compile Include="Hoyolab\GameRecord\WorldExplorationRewardType.cs" />
+    <Compile Include="Hoyolab\HoyolabBaseWrapper.cs" />
+    <Compile Include="Hoyolab\HoyolabClient.cs" />
+    <Compile Include="Hoyolab\HoyolabException.cs" />
+    <Compile Include="Hoyolab\HoyolabJsonContext.cs" />
+    <Compile Include="Hoyolab\News\NewsDetailWrapper.cs" />
+    <Compile Include="Hoyolab\News\NewsItem.cs" />
+    <Compile Include="Hoyolab\News\NewsListWrapper.cs" />
+    <Compile Include="Hoyolab\News\NewsPost.cs" />
+    <Compile Include="Hoyolab\News\NewsTimeJsonConverter.cs" />
+    <Compile Include="Hoyolab\News\NewsType.cs" />
+    <Compile Include="Hoyolab\SpiralAbyss\SpiralAbyssAvatar.cs" />
+    <Compile Include="Hoyolab\SpiralAbyss\SpiralAbyssBattle.cs" />
+    <Compile Include="Hoyolab\SpiralAbyss\SpiralAbyssFloor.cs" />
+    <Compile Include="Hoyolab\SpiralAbyss\SpiralAbyssInfo.cs" />
+    <Compile Include="Hoyolab\SpiralAbyss\SpiralAbyssLevel.cs" />
+    <Compile Include="Hoyolab\SpiralAbyss\SpiralAbyssRank.cs" />
+    <Compile Include="Hoyolab\SpiralAbyss\SpiralAbyssTimeJsonConverter.cs" />
+    <Compile Include="Hoyolab\TravelNotes\TravelNotesAwardItem.cs" />
+    <Compile Include="Hoyolab\TravelNotes\TravelNotesAwardType.cs" />
+    <Compile Include="Hoyolab\TravelNotes\TravelNotesBase.cs" />
+    <Compile Include="Hoyolab\TravelNotes\TravelNotesDateJsonConverter.cs" />
+    <Compile Include="Hoyolab\TravelNotes\TravelNotesDateTimeJsonConverter.cs" />
+    <Compile Include="Hoyolab\TravelNotes\TravelNotesDayData.cs" />
+    <Compile Include="Hoyolab\TravelNotes\TravelNotesDetail.cs" />
+    <Compile Include="Hoyolab\TravelNotes\TravelNotesMonthData.cs" />
+    <Compile Include="Hoyolab\TravelNotes\TravelNotesPrimogemsMonthGroupStats.cs" />
+    <Compile Include="Hoyolab\TravelNotes\TravelNotesSummary.cs" />
+    <Compile Include="Hoyolab\Wishlog\QueryParam.cs" />
+    <Compile Include="Hoyolab\Wishlog\WishEventInfo.cs" />
+    <Compile Include="Hoyolab\Wishlog\WishlogClient.cs" />
+    <Compile Include="Hoyolab\Wishlog\WishlogItem.cs" />
+    <Compile Include="Hoyolab\Wishlog\WishlogJsonContext.cs" />
+    <Compile Include="Hoyolab\Wishlog\WishlogWrapper.cs" />
+    <Compile Include="Hoyolab\Wishlog\WishType.cs" />
+    <Compile Include="Hoyolab\Wishlog\WishTypeJsonConverter.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DatabaseService.cs" />
+    <Compile Include="Services\DatabaseSql.cs" />
+    <Compile Include="Services\HoyolabService.cs" />
+    <Compile Include="Services\RefreshTileBackgroundTask.cs" />
+    <Compile Include="Services\TileService.cs" />
+    <Compile Include="Models\UserInfo.cs" />
+    <Compile Include="XBoxWidgetPage.xaml.cs">
+      <DependentUpon>XBoxWidgetPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Images\Domain_64.png" />
+    <Content Include="Assets\Images\Transparent.png" />
+    <Content Include="Assets\Images\UI_EmotionIcon2.png" />
+    <Content Include="Assets\Images\UI_EmotionIcon5.png" />
+    <Content Include="Assets\Images\UI_Icon_Intee_Explore_1.png" />
+    <Content Include="Assets\Images\UI_ItemIcon_201.png" />
+    <Content Include="Assets\Images\UI_ItemIcon_202.png" />
+    <Content Include="Assets\Images\UI_ItemIcon_204.png" />
+    <Content Include="Assets\Images\UI_ItemIcon_210.png" />
+    <Content Include="Assets\Images\UI_ItemIcon_211.png" />
+    <Content Include="Assets\Images\UI_ItemIcon_220021_64.png" />
+    <Content Include="Assets\Images\UI_NPCTopIcon_QuestEvent_64.png" />
+    <Content Include="Assets\LargeTile.scale-100.png" />
+    <Content Include="Assets\LargeTile.scale-125.png" />
+    <Content Include="Assets\LargeTile.scale-150.png" />
+    <Content Include="Assets\LargeTile.scale-200.png" />
+    <Content Include="Assets\SmallTile.scale-100.png" />
+    <Content Include="Assets\SmallTile.scale-125.png" />
+    <Content Include="Assets\SmallTile.scale-150.png" />
+    <Content Include="Assets\SmallTile.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-125.png" />
+    <Content Include="Assets\Square150x150Logo.scale-150.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Square44x44Logo.scale-125.png" />
+    <Content Include="Assets\Square44x44Logo.scale-150.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-125.png" />
+    <Content Include="Assets\StoreLogo.scale-150.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-125.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-150.png" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Controls\UserCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\XboxWidgetUserCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="XBoxWidgetPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.WinUI.Notifications">
+      <Version>7.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Data.Sqlite">
+      <Version>6.0.6</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Gaming.XboxGameBar">
+      <Version>5.6.210414002</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.14</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.UI.Xaml">
+      <Version>2.7.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Net.Http.Json">
+      <Version>6.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Text.Json">
+      <Version>6.0.5</Version>
+    </PackageReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
