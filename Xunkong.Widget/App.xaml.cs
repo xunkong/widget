@@ -7,6 +7,7 @@ using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Xunkong.Widget.Services;
 
 namespace Xunkong.Widget
 {
@@ -31,6 +32,7 @@ namespace Xunkong.Widget
             if (e.ExceptionObject is Exception ex)
             {
                 var file = Path.Combine(ApplicationData.Current.LocalFolder.Path, $"Crash/crash_{DateTimeOffset.Now:yyyyMMdd_HHmmss}.txt");
+                Directory.CreateDirectory(Path.GetDirectoryName(file));
                 File.WriteAllText(file, ex.ToString());
             }
         }
@@ -101,6 +103,15 @@ namespace Xunkong.Widget
             deferral.Complete();
         }
 
+
+
+        protected override async void OnBackgroundActivated(BackgroundActivatedEventArgs args)
+        {
+            base.OnBackgroundActivated(args);
+            var deferral = args.TaskInstance.GetDeferral();
+            await RefreshTileBackgroundTask.RefreshTileAsync();
+            deferral.Complete();
+        }
 
 
 

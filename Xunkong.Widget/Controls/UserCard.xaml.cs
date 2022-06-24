@@ -20,10 +20,7 @@ namespace Xunkong.Widget.Controls
 
 
 
-        //public Visibility IsPinButtonVisible => Environment.OSVersion.Version < new Version("10.0.22000.0") ? Visibility.Visible : Visibility.Collapsed;
-
-        // 无法解决后台任务的问题，禁用磁贴功能
-        public Visibility IsPinButtonVisible => Visibility.Collapsed;
+        public Visibility IsPinButtonVisible => Environment.OSVersion.Version < new Version("10.0.22000.0") ? Visibility.Visible : Visibility.Collapsed;
 
 
 
@@ -55,7 +52,7 @@ namespace Xunkong.Widget.Controls
                 if (Environment.OSVersion.Version < new Version("10.0.22000.0"))
                 {
                     await TileService.RequestPinTileAsync(UserInfo.DailyNoteInfo);
-                    //await RefreshTileBackgroundTask.RegisterTask();
+                    await RefreshTileBackgroundTask.RegisterTaskAsync();
                 }
             }
             catch { }

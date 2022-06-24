@@ -8,10 +8,22 @@ namespace Xunkong.Widget.Services
 {
     public sealed class RefreshTileBackgroundTask : IBackgroundTask
     {
+
+
+
         public async void Run(IBackgroundTaskInstance taskInstance)
         {
-            bool noTile = true;
             var deferral = taskInstance.GetDeferral();
+            await RefreshTileAsync();
+            deferral.Complete();
+        }
+
+
+
+
+        public static async Task RefreshTileAsync()
+        {
+            bool noTile = true;
             try
             {
                 var service = new HoyolabService();
@@ -36,12 +48,11 @@ namespace Xunkong.Widget.Services
             {
                 UnregisterTask();
             }
-            deferral.Complete();
         }
 
 
 
-        public static async Task<bool> RegisterTask()
+        public static async Task<bool> RegisterTaskAsync()
         {
             var requestStatus = await BackgroundExecutionManager.RequestAccessAsync();
             if (requestStatus == BackgroundAccessStatus.AlwaysAllowed || requestStatus == BackgroundAccessStatus.AllowedSubjectToSystemPolicy)
@@ -50,7 +61,6 @@ namespace Xunkong.Widget.Services
                 var builder = new BackgroundTaskBuilder();
                 builder.Name = "RefreshTileBackgroundTask";
                 builder.SetTrigger(new TimeTrigger(16, false));
-                builder.TaskEntryPoint = "Xunkong.Widget.Services.RefreshTileBackgroundTask";
                 BackgroundTaskRegistration task = builder.Register();
                 return true;
             }
@@ -58,7 +68,6 @@ namespace Xunkong.Widget.Services
             {
                 return false;
             }
-
         }
 
 

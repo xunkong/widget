@@ -6,8 +6,6 @@
       xmlns:local="using:Xunkong.Widget"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:models="using:Xunkong.Widget.Models"
-      xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-      muxc:BackdropMaterial.ApplyToRootOrPageBackground="False"
       x:DefaultBindMode="OneWay"
       RequestedTheme="Light"
       mc:Ignorable="d">
@@ -20,7 +18,7 @@
         <!--<Border x:Name="AppTitleBar" Background="{ThemeResource SystemControlAltLowAcrylicWindowBrush}">-->
         <Border x:Name="AppTitleBar" Background="#F1EAE2">
             <StackPanel Margin="92,0,0,0" Orientation="Horizontal">
-                <TextBlock VerticalAlignment="Center" Text="寻空 小组件" />
+                <TextBlock VerticalAlignment="Center" Text="寻空小组件" />
             </StackPanel>
         </Border>
         <StackPanel Margin="0,0,188,0"

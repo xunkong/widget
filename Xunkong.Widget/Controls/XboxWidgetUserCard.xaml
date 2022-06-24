@@ -19,13 +19,9 @@
             <RowDefinition Height="60" />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
 
 
-        <StackPanel Orientation="Horizontal" Spacing="20">
+        <StackPanel Orientation="Horizontal" Spacing="16">
             <Border Width="48"
                     Height="48"
                     Margin="4,0,0,0"
@@ -53,6 +49,27 @@
                 <TextBlock d:Text="60" Text="{x:Bind UserInfo.TravelNotesDayData.CurrentPrimogems}" />
                 <TextBlock d:Text="120000" Text="{x:Bind UserInfo.TravelNotesDayData.CurrentMora}" />
             </StackPanel>
+            <StackPanel VerticalAlignment="Center" Visibility="{x:Bind UserInfo.TravelNotesDayData, Converter={StaticResource ObjectToVisibilityConverter}}">
+                <Image Width="20"
+                       Margin="0,0,0,4"
+                       Source="{StaticResource Image_Transformer}" />
+                <TextBlock VerticalAlignment="Center"
+                           FontSize="12"
+                           Foreground="OrangeRed"
+                           Text="未获得"
+                           Visibility="{x:Bind UserInfo.DailyNoteInfo.Transformer.Obtained, Converter={StaticResource BoolToVisibilityReversedConverter}}" />
+                <Grid Visibility="{x:Bind UserInfo.DailyNoteInfo.Transformer.Obtained, Converter={StaticResource BoolToVisibilityConverter}}">
+                    <TextBlock VerticalAlignment="Center"
+                               FontSize="12"
+                               Foreground="OrangeRed"
+                               Text="可使用"
+                               Visibility="{x:Bind UserInfo.DailyNoteInfo.Transformer.RecoveryTime.Reached, Converter={StaticResource BoolToVisibilityConverter}}" />
+                    <TextBlock VerticalAlignment="Center"
+                               FontSize="12"
+                               Text="冷却中"
+                               Visibility="{x:Bind UserInfo.DailyNoteInfo.Transformer.RecoveryTime.Reached, Converter={StaticResource BoolToVisibilityReversedConverter}}" />
+                </Grid>
+            </StackPanel>
         </StackPanel>
 
 
@@ -61,6 +78,17 @@
                     VerticalAlignment="Bottom"
                     Orientation="Horizontal"
                     Spacing="12">
+            <StackPanel Spacing="4">
+                <Image Width="20"
+                       Height="20"
+                       Source="{StaticResource Image_Explore}"
+                       Stretch="Uniform" />
+                <TextBlock HorizontalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}">
+                    <Run d:Text="2" Text="{x:Bind UserInfo.DailyNoteInfo.FinishedExpeditionNumber}" />
+                    <Run Text="/" />
+                    <Run d:Text="5" Text="{x:Bind UserInfo.DailyNoteInfo.CurrentExpeditionNumber}" />
+                </TextBlock>
+            </StackPanel>
             <StackPanel Spacing="4">
                 <Image Width="20"
                        Height="20"
@@ -92,18 +120,7 @@
                 <TextBlock HorizontalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}">
                     <Run d:Text="1240" Text="{x:Bind UserInfo.DailyNoteInfo.CurrentHomeCoin}" />
                     <Run Text="/" />
-                    <Run d:Text="240" Text="{x:Bind UserInfo.DailyNoteInfo.MaxHomeCoin}" />
-                </TextBlock>
-            </StackPanel>
-            <StackPanel Spacing="4">
-                <Image Width="20"
-                       Height="20"
-                       Source="{StaticResource Image_Explore}"
-                       Stretch="Uniform" />
-                <TextBlock HorizontalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}">
-                    <Run d:Text="2" Text="{x:Bind UserInfo.DailyNoteInfo.FinishedExpeditionNumber}" />
-                    <Run Text="/" />
-                    <Run d:Text="5" Text="{x:Bind UserInfo.DailyNoteInfo.CurrentExpeditionNumber}" />
+                    <Run d:Text="2400" Text="{x:Bind UserInfo.DailyNoteInfo.MaxHomeCoin}" />
                 </TextBlock>
             </StackPanel>
             <StackPanel Grid.Column="1">

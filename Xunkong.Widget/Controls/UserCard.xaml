@@ -5,7 +5,6 @@
              xmlns:dn="using:Xunkong.Widget.Hoyolab.DailyNote"
              xmlns:local="using:Xunkong.Widget.Controls"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:mxuc="using:Microsoft.UI.Xaml.Controls"
              Width="324"
              Height="400"
              x:DefaultBindMode="OneWay"
@@ -196,11 +195,13 @@
                         </Button.Flyout>
                     </Button>
                 </StackPanel>
-                <mxuc:ItemsRepeater Margin="4,-12,4,0" ItemsSource="{x:Bind UserInfo.DailyNoteInfo.Expeditions}">
-                    <mxuc:ItemsRepeater.Layout>
-                        <mxuc:StackLayout Orientation="Horizontal" Spacing="16" />
-                    </mxuc:ItemsRepeater.Layout>
-                    <mxuc:ItemsRepeater.ItemTemplate>
+                <ItemsControl Margin="4,-12,4,0" ItemsSource="{x:Bind UserInfo.DailyNoteInfo.Expeditions}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" Spacing="16" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
                         <DataTemplate x:DataType="dn:Expedition">
                             <StackPanel>
                                 <Grid HorizontalAlignment="Center">
@@ -221,8 +222,8 @@
                                            Visibility="{x:Bind IsFinished, Converter={StaticResource BoolToVisibilityReversedConverter}}" />
                             </StackPanel>
                         </DataTemplate>
-                    </mxuc:ItemsRepeater.ItemTemplate>
-                </mxuc:ItemsRepeater>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </StackPanel>
         </StackPanel>
 

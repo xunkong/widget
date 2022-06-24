@@ -10,12 +10,12 @@
 	<Identity
 	  Name="Xunkong.Widget"
 	  Publisher="CN=Xunkong by Scighost"
-	  Version="0.1.0.0" />
+	  Version="0.2.0.0" />
 
 	<mp:PhoneIdentity PhoneProductId="1706ff10-7f34-4653-9869-999a2c2f4527" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
 	<Properties>
-		<DisplayName>Xunkong.Widget</DisplayName>
+		<DisplayName>寻空小组件</DisplayName>
 		<PublisherDisplayName>Scighost</PublisherDisplayName>
 		<Logo>Assets\StoreLogo.png</Logo>
 	</Properties>
