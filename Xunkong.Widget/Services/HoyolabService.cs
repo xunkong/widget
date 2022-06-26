@@ -187,7 +187,7 @@ namespace Xunkong.Widget.Services
 
 
 
-        public async Task<List<UserInfo>> GetAllUserInfosAsync()
+        public async IAsyncEnumerable<UserInfo> GetAllUserInfosAsync()
         {
             var userInfos = new List<UserInfo>();
             var hoyolabUsers = GetHoyolabUserInfos();
@@ -209,8 +209,8 @@ namespace Xunkong.Widget.Services
                     userInfo.Error = true;
                     userInfo.ErrorMessage = ex.Message;
                 }
+                yield return userInfo;
             }
-            return userInfos;
         }
 
 

@@ -10,6 +10,7 @@
     <RootNamespace>Xunkong.Widget</RootNamespace>
     <AssemblyName>Xunkong.Widget</AssemblyName>
     <DefaultLanguage>zh-CN</DefaultLanguage>
+    <LangVersion>preview</LangVersion>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.22000.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.18362.0</TargetPlatformMinVersion>

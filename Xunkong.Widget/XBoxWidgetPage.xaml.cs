@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
@@ -28,7 +27,7 @@ namespace Xunkong.Widget
         private readonly HoyolabService _hoyolabService;
 
 
-        private ObservableCollection<UserInfo> _UserInfos;
+        private ObservableCollection<UserInfo> _UserInfos = new();
         public ObservableCollection<UserInfo> UserInfos
         {
             get { return _UserInfos; }
@@ -76,30 +75,36 @@ namespace Xunkong.Widget
 
 
 
-
         private async void XBoxWidgetPage_Loaded(object sender, RoutedEventArgs e)
         {
             try
             {
+                bool cleared = false;
                 ShowErrorEmotion = false;
                 if (!_hoyolabService.AnyUserInfo())
                 {
                     ShowErrorEmotion = true;
                     ErrorMessage = "没有账号";
-                }
-                var userInfos = await _hoyolabService.GetAllUserInfosAsync();
-                if (userInfos.Any(x => x.Error))
-                {
-                    ShowErrorEmotion = true;
-                    var first = userInfos.FirstOrDefault(x => x.Error);
-                    if (first != null)
-                    {
-                        ErrorMessage = first.ErrorMessage;
-                    }
                     return;
                 }
-                UserInfos = new ObservableCollection<UserInfo>(userInfos);
-                await _hoyolabService.UpdateUserInfosAsync();
+                await foreach (var item in _hoyolabService.GetAllUserInfosAsync())
+                {
+                    if (item.Error)
+                    {
+                        ShowErrorEmotion = true;
+                        ErrorMessage = item.ErrorMessage;
+                        UserInfos.Clear();
+                        return;
+                    }
+                    else
+                    {
+                        if (!cleared)
+                        {
+                            UserInfos.Clear();
+                        }
+                        UserInfos.Add(item);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -119,25 +124,32 @@ namespace Xunkong.Widget
             }
             try
             {
+                bool cleared = false;
                 ShowErrorEmotion = false;
                 if (!_hoyolabService.AnyUserInfo())
                 {
                     ShowErrorEmotion = true;
                     ErrorMessage = "没有账号";
-                }
-                var userInfos = await _hoyolabService.GetAllUserInfosAsync();
-                if (userInfos.Any(x => x.Error))
-                {
-                    ShowErrorEmotion = true;
-                    var first = userInfos.FirstOrDefault(x => x.Error);
-                    if (first != null)
-                    {
-                        ErrorMessage = first.ErrorMessage;
-                    }
                     return;
                 }
-                UserInfos = new ObservableCollection<UserInfo>(userInfos);
-                await _hoyolabService.UpdateUserInfosAsync();
+                await foreach (var item in _hoyolabService.GetAllUserInfosAsync())
+                {
+                    if (item.Error)
+                    {
+                        ShowErrorEmotion = true;
+                        ErrorMessage = item.ErrorMessage;
+                        UserInfos.Clear();
+                        return;
+                    }
+                    else
+                    {
+                        if (!cleared)
+                        {
+                            UserInfos.Clear();
+                        }
+                        UserInfos.Add(item);
+                    }
+                }
             }
             catch (Exception ex)
             {

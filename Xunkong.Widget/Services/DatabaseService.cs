@@ -29,17 +29,12 @@ namespace Xunkong.Widget.Services
 
         private static void Initialize()
         {
-            //if (!File.Exists(_dbPath))
-            //{
-            //    File.Create(_dbPath).Dispose();
-            //}
             using (var db = new SqliteConnection(_dbConnectionString))
             {
                 db.Open();
                 var command_init = new SqliteCommand(TableStructure_Initial, db);
                 command_init.ExecuteNonQuery();
                 var command_queryVersion = new SqliteCommand("SELECT Value FROM DatabaseVersion WHERE Key='DatabaseVersion' LIMIT 1;", db);
-                //var scl = command_queryVersion.ExecuteScalar();
                 int.TryParse(command_queryVersion.ExecuteScalar() as string, out int version);
                 if (version < DATABASE_VERSION)
                 {

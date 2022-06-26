@@ -37,7 +37,7 @@ namespace Xunkong.Widget
         private readonly HoyolabService _hoyolabService;
 
 
-        private ObservableCollection<UserInfo> _UserInfos;
+        private ObservableCollection<UserInfo> _UserInfos = new();
         public ObservableCollection<UserInfo> UserInfos
         {
             get { return _UserInfos; }
@@ -45,11 +45,6 @@ namespace Xunkong.Widget
             {
                 _UserInfos = value;
                 OnPropertyChanged();
-                if (value?.Any() ?? false)
-                {
-                    Image_Splash.Visibility = Visibility.Collapsed;
-                    TextBlock_NoUserInfo.Visibility = Visibility.Collapsed;
-                }
             }
         }
 
@@ -59,10 +54,18 @@ namespace Xunkong.Widget
             this.InitializeComponent();
             InitializeTitleBar();
             _hoyolabService = new HoyolabService();
+            _UserInfos.CollectionChanged += _UserInfos_CollectionChanged;
             this.Loaded += MainPage_Loaded;
         }
 
-
+        private void _UserInfos_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            if (_UserInfos.Any())
+            {
+                Image_Splash.Visibility = Visibility.Collapsed;
+                TextBlock_NoUserInfo.Visibility = Visibility.Collapsed;
+            }
+        }
 
         private void InitializeTitleBar()
         {
@@ -106,12 +109,21 @@ namespace Xunkong.Widget
             GridView_UserInfo.Focus(FocusState.Pointer);
             try
             {
+                bool cleared = false;
                 if (!_hoyolabService.AnyUserInfo())
                 {
                     TextBlock_NoUserInfo.Visibility = Visibility.Visible;
+                    return;
                 }
-                var userInfos = await _hoyolabService.GetAllUserInfosAsync();
-                UserInfos = new ObservableCollection<UserInfo>(userInfos);
+                await foreach (var item in _hoyolabService.GetAllUserInfosAsync())
+                {
+                    if (!cleared)
+                    {
+                        UserInfos.Clear();
+                        cleared = true;
+                    }
+                    UserInfos.Add(item);
+                }
                 await _hoyolabService.UpdateUserInfosAsync();
             }
             catch (Exception ex)
@@ -167,8 +179,16 @@ namespace Xunkong.Widget
                 try
                 {
                     await _hoyolabService.AddUserInfosAsync(cookie);
-                    var users = await _hoyolabService.GetAllUserInfosAsync();
-                    UserInfos = new ObservableCollection<UserInfo>(users);
+                    bool cleared = false;
+                    await foreach (var item in _hoyolabService.GetAllUserInfosAsync())
+                    {
+                        if (!cleared)
+                        {
+                            UserInfos.Clear();
+                            cleared = true;
+                        }
+                        UserInfos.Add(item);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -182,8 +202,16 @@ namespace Xunkong.Widget
             try
             {
                 await _hoyolabService.UpdateUserInfosAsync();
-                var users = await _hoyolabService.GetAllUserInfosAsync();
-                UserInfos = new ObservableCollection<UserInfo>(users);
+                bool cleared = false;
+                await foreach (var item in _hoyolabService.GetAllUserInfosAsync())
+                {
+                    if (!cleared)
+                    {
+                        UserInfos.Clear();
+                        cleared = true;
+                    }
+                    UserInfos.Add(item);
+                }
             }
             catch (Exception ex)
             {
