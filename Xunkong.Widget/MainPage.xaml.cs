@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
+using Windows.System;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -72,10 +73,6 @@ namespace Xunkong.Widget
             var titleBar = ApplicationView.GetForCurrentView().TitleBar;
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             Window.Current.SetTitleBar(AppTitleBar);
-            //if (Environment.OSVersion.Version >= new Version("10.0.22000.0"))
-            //{
-            //    AppTitleBar.Background = new SolidColorBrush(Colors.Transparent);
-            //}
         }
 
 
@@ -116,6 +113,19 @@ namespace Xunkong.Widget
                 var userInfos = await _hoyolabService.GetAllUserInfosAsync();
                 UserInfos = new ObservableCollection<UserInfo>(userInfos);
                 await _hoyolabService.UpdateUserInfosAsync();
+            }
+            catch (Exception ex)
+            {
+                ShowError(ex.Message);
+            }
+        }
+
+
+        private async void Button_Home_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                await Launcher.LaunchUriAsync(new Uri("https://github.com/xunkong/widget"));
             }
             catch (Exception ex)
             {
@@ -219,5 +229,7 @@ namespace Xunkong.Widget
                 }
             }
         }
+
+
     }
 }

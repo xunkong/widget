@@ -10,7 +10,7 @@
 	<Identity
 	  Name="Xunkong.Widget"
 	  Publisher="CN=Xunkong by Scighost"
-	  Version="0.2.0.0" />
+	  Version="0.2.1.0" />
 
 	<mp:PhoneIdentity PhoneProductId="1706ff10-7f34-4653-9869-999a2c2f4527" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
@@ -36,18 +36,13 @@
 			  DisplayName="寻空小组件"
 			  Square150x150Logo="Assets\Square150x150Logo.png"
 			  Square44x44Logo="Assets\Square44x44Logo.png"
-			  Description="寻空小组件"
+			  Description="原神实时便笺，支持磁贴和Xbox小组件。"
 			  BackgroundColor="transparent">
 				<uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png">
 				</uap:DefaultTile >
 				<uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#F1EAE2"/>
 			</uap:VisualElements>
 			<Extensions>
-				<!--<Extension Category="windows.backgroundTasks" EntryPoint="Xunkong.Widget.Services.RefreshTileBackgroundTask">
-					<BackgroundTasks>
-						<Task Type="timer"/>
-					</BackgroundTasks>
-				</Extension>-->
 				<uap3:Extension Category="windows.appExtension">
 					<uap3:AppExtension Name="microsoft.gameBarUIExtension"
 									   Id="Xunkong.Widget.1"
@@ -58,7 +53,6 @@
 							<GameBarWidget Type="Standard">
 								<HomeMenuVisible>true</HomeMenuVisible>
 								<PinningSupported>true</PinningSupported>
-								<!--<SettingsSupported AppExtensionId="YourSettingsExtensionId" />-->
 								<Window>
 									<AllowForegroundTransparency>true</AllowForegroundTransparency>
 									<Size>
@@ -83,15 +77,6 @@
 	</Applications>
 
 	<Extensions>
-		<!--<Extension Category="windows.activatableClass.inProcessServer">
-			<InProcessServer>
-				<Path>WinRT.Host.dll</Path>
-				<ActivatableClass ActivatableClassId="Xunkong.Widget.Services.RefreshTileBackgroundTask" ThreadingModel="both" />
-			</InProcessServer>
-		</Extension>-->
-		<!-- Enlighten COM on where to find Metadata Based Marshaling (MBM) data for the Game Bar private types 
-       <Path> is a required element (by VS) and has to point to a binary in the package, but it's not used when the class id is
-       00000355-0000-0000-C000-000000000046 (MBM). Due to that we just put the Microsoft.Gaming.XboxGameBar.winmd here. -->
 		<Extension Category="windows.activatableClass.proxyStub">
 			<ProxyStub ClassId="00000355-0000-0000-C000-000000000046">
 				<Path>Microsoft.Gaming.XboxGameBar.winmd</Path>

@@ -15,15 +15,21 @@
             <RowDefinition Height="32" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <!--<Border x:Name="AppTitleBar" Background="{ThemeResource SystemControlAltLowAcrylicWindowBrush}">-->
         <Border x:Name="AppTitleBar" Background="#F1EAE2">
-            <StackPanel Margin="92,0,0,0" Orientation="Horizontal">
+            <StackPanel Margin="132,0,0,0" Orientation="Horizontal">
                 <TextBlock VerticalAlignment="Center" Text="寻空小组件" />
             </StackPanel>
         </Border>
-        <StackPanel Margin="0,0,188,0"
-                    HorizontalAlignment="Left"
-                    Orientation="Horizontal">
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+            <Button x:Name="Button_Home"
+                    Width="40"
+                    Height="32"
+                    Padding="0"
+                    Click="Button_Home_Click"
+                    Content="&#xE80F;"
+                    FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                    Style="{ThemeResource DateTimePickerFlyoutButtonStyle}"
+                    ToolTipService.ToolTip="主页" />
             <Button x:Name="Button_Add"
                     Width="40"
                     Height="32"
@@ -31,7 +37,8 @@
                     Click="Button_Add_Click"
                     Content="&#xE710;"
                     FontFamily="{ThemeResource SymbolThemeFontFamily}"
-                    Style="{ThemeResource DateTimePickerFlyoutButtonStyle}" />
+                    Style="{ThemeResource DateTimePickerFlyoutButtonStyle}"
+                    ToolTipService.ToolTip="添加" />
             <Button x:Name="Button_Refresh"
                     Width="40"
                     Height="32"
@@ -39,7 +46,8 @@
                     Click="Button_Refresh_Click"
                     Content="&#xE72C;"
                     FontFamily="{ThemeResource SymbolThemeFontFamily}"
-                    Style="{ThemeResource DateTimePickerFlyoutButtonStyle}" />
+                    Style="{ThemeResource DateTimePickerFlyoutButtonStyle}"
+                    ToolTipService.ToolTip="刷新" />
         </StackPanel>
 
 
