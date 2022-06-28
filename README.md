@@ -31,3 +31,5 @@
 ## 其他
 
 应用图标来源：[Bilibili@QuAn__](https://t.bilibili.com/575371497058829825)
+
+[隐私策略](./Privacy.md)
