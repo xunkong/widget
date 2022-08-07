@@ -65,6 +65,9 @@ namespace Xunkong.Widget
 
 
 
+        private DateTimeOffset lastUpdateTime;
+
+
 
         public XBoxWidgetPage()
         {
@@ -105,6 +108,7 @@ namespace Xunkong.Widget
                         UserInfos.Add(item);
                     }
                 }
+                lastUpdateTime = DateTimeOffset.Now;
             }
             catch (Exception ex)
             {
@@ -120,6 +124,10 @@ namespace Xunkong.Widget
             if (Window.Current.Visible)
             {
                 // 判断条件没有错
+                return;
+            }
+            if (DateTimeOffset.Now - lastUpdateTime < TimeSpan.FromMinutes(1))
+            {
                 return;
             }
             try
@@ -150,6 +158,7 @@ namespace Xunkong.Widget
                         UserInfos.Add(item);
                     }
                 }
+                lastUpdateTime = DateTimeOffset.Now;
             }
             catch (Exception ex)
             {
