@@ -158,6 +158,16 @@ namespace Xunkong.Widget
             var text = new TextBlock();
             text.Inlines.Add(hyperLink);
             stackPanel.Children.Add(text);
+            var hyperLink2 = new Hyperlink
+            {
+                UnderlineStyle = UnderlineStyle.None,
+            };
+            hyperLink2.Click += async (_, _) =>
+            await Launcher.LaunchUriAsync(new Uri("xunkong://get-cookie?caller=寻空小组件"), new LauncherOptions { FallbackUri = new Uri("https://www.microsoft.com/store/apps/9N2SVG0JMT12") });
+            hyperLink2.Inlines.Add(new Run { Text = "从寻空复制 Cookie" });
+            var text2 = new TextBlock();
+            text2.Inlines.Add(hyperLink2);
+            stackPanel.Children.Add(text2);
             var input = new TextBox();
             stackPanel.Children.Add(input);
             var dialog = new ContentDialog
