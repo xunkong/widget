@@ -151,7 +151,7 @@ namespace Xunkong.Widget
             var stackPanel = new StackPanel { Spacing = 8 };
             var hyperLink = new Hyperlink
             {
-                NavigateUri = new Uri("https://xunkong.cc/help/desktop/account.html"),
+                NavigateUri = new Uri("https://xunkong.cc/help/xunkong/account.html"),
                 UnderlineStyle = UnderlineStyle.None,
             };
             hyperLink.Inlines.Add(new Run { Text = "如何获取 Cookie" });
