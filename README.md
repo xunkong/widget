@@ -12,7 +12,7 @@
 
 ## 使用方法
 
-懂得都懂，不懂的看[这个](https://xunkong.cc/help/desktop/account.html)
+懂得都懂，不懂的看[这个](https://xunkong.cc/help/xunkong/account.html)
 
 ## 截图
 
